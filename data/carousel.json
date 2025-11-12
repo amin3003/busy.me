@@ -1,0 +1,83 @@
+[
+    {
+        "id": 1,
+        "title": "I receive an email from Julia",
+        "image": {
+            "src": "/cards/img-step1.png",
+            "alt": "Step 1 - Email from Julia"
+        },
+        "cards": [
+            {
+                "id": 1,
+                "img": "/home/avatar.jpg",
+                "title": "Email received",
+                "subtitle": "Julia sent you a message",
+                "type": "content",
+                "content": "She wants to schedule a meeting about the new design."
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "I schedule a meeting with Julia",
+        "image": {
+            "src": "/cards/img-step2.png",
+            "alt": "Step 2 - Meeting"
+        },
+        "cards": [
+            {
+                "id": 1,
+                "img": "/home/event.png",
+                "title": "Meeting scheduled",
+                "type": "time-range",
+                "date": "Tomorrow",
+                "start": "4:40 PM",
+                "end": "5:00 PM"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Create important task for Julia",
+        "image": {
+            "src": "/cards/img-step3.png",
+            "alt": "Step 3 - Task"
+        },
+        "cards": [
+            {
+                "id": 1,
+                "img": "/home/task.png",
+                "title": "Prepare sketches for Julia",
+                "type": "time-range",
+                "date": "Tomorrow",
+                "start": "4:40 PM",
+                "end": "5:00 PM"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "I add notes for our meeting",
+        "image": {
+            "src": "/cards/img-step4.png",
+            "alt": "Step 4 - Notes"
+        },
+        "cards": [
+            {
+                "id": 1,
+                "img": "/home/note.png",
+                "title": "Add meeting notes",
+                "content": "Remember to discuss UI updates."
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "With busy.me, everything stays <strong>linked and organized</strong>",
+        "image": {
+            "src": "/cards/macbook.png",
+            "alt": "Step 5 - Busy.me summary"
+        },
+        "cards": []
+    }
+]
