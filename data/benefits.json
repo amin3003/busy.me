@@ -1,0 +1,115 @@
+{
+    "emails": {
+        "idPrefix": "emails",
+        "picName": "/features/collapsed.png",
+        "description": "Handle your inbox, templates and smart filters all in one place.",
+        "features": [
+            {
+                "label": "Smart Inbox",
+                "zoomPos": {
+                    "x": "20%",
+                    "y": "30%"
+                }
+            },
+            {
+                "label": "Templates",
+                "zoomPos": {
+                    "x": "50%",
+                    "y": "25%"
+                }
+            },
+            {
+                "label": "Scheduled Send",
+                "zoomPos": {
+                    "x": "78%",
+                    "y": "40%"
+                }
+            }
+        ]
+    },
+    "tasks": {
+        "idPrefix": "tasks",
+        "picName": "/features/task-newthread.png",
+        "description": "Plan, assign and track tasks with priorities and timelines.",
+        "features": [
+            {
+                "label": "Kanban Board",
+                "zoomPos": {
+                    "x": "35%",
+                    "y": "50%"
+                }
+            },
+            {
+                "label": "Subtasks",
+                "zoomPos": {
+                    "x": "60%",
+                    "y": "30%"
+                }
+            },
+            {
+                "label": "Reminders",
+                "zoomPos": {
+                    "x": "85%",
+                    "y": "60%"
+                }
+            }
+        ]
+    },
+    "events": {
+        "idPrefix": "events",
+        "picName": "/features/events.png",
+        "description": "Calendar, scheduling and integrated video links.",
+        "features": [
+            {
+                "label": "Calendar View",
+                "zoomPos": {
+                    "x": "30%",
+                    "y": "45%"
+                }
+            },
+            {
+                "label": "Invites",
+                "zoomPos": {
+                    "x": "65%",
+                    "y": "30%"
+                }
+            },
+            {
+                "label": "Availability",
+                "zoomPos": {
+                    "x": "90%",
+                    "y": "55%"
+                }
+            }
+        ]
+    },
+    "notes": {
+        "idPrefix": "notes",
+        "picName": "/features/notes.png",
+        "description": "Quick notes, rich text and linked notebooks for context.",
+        "features": [
+            {
+                "label": "Rich Editor",
+                "zoomPos": {
+                    "x": "25%",
+                    "y": "40%"
+                }
+            },
+            {
+                "label": "Notebook Links",
+                "zoomPos": {
+                    "x": "55%",
+                    "y": "35%"
+                }
+            },
+            {
+                "label": "Search",
+                "zoomPos": {
+                    "x": "75%",
+                    "y": "20%"
+                }
+            }
+        ]
+    }
+   
+}

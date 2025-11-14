@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { Navs } from '@/components';
+import { Footer, Navs } from '@/components';
 
 export const metadata: Metadata = {
   title: 'Busy.me',
@@ -14,9 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-gray-50 text-gray-900">
+      <body className=" bg-gray-50 text-gray-900">
         <Navs />
-        <main className="container">{children}</main>
+        <main className="mx-auto w-full max-w-screen-2xl">{children}</main>
+        <Footer />
       </body>
     </html>
   );
