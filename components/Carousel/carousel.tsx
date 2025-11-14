@@ -18,12 +18,12 @@ export default function Carousel() {
   const [current, setCurrent] = useState(0);
   const length = slides.length;
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev === length - 1 ? 0 : prev + 1));
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [length]);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrent((prev) => (prev === length - 1 ? 0 : prev + 1));
+  //   }, 4000);
+  //   return () => clearInterval(interval);
+  // }, [length]);
 
   const nextSlide = () => setCurrent(current === length - 1 ? 0 : current + 1);
   const prevSlide = () => setCurrent(current === 0 ? length - 1 : current - 1);
@@ -32,13 +32,13 @@ export default function Carousel() {
   const visibleSlides = slides.slice(0, current + 1);
 
   return (
-    <div className="relative w-full h-[70vh] md:h-[85vh] lg:h-screen overflow-hidden bg-gray-50 flex items-center justify-center">
+    <div className="relative w-full h-[70vh] md:h-[85vh] lg:h-screen overflow-hidden bg-gray-50 flex items-center justify-center px-10">
       {/* Slides wrapper */}
       <div className="relative w-full h-full flex items-center justify-center">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 flex flex-col md:flex-row items-center justify-around gap-4 px-6 md:px-12 transition-opacity duration-700 ease-in-out ${
+            className={`absolute inset-0 flex flex-col  md:flex-row items-center justify-around gap-4 px-6 md:px-12 transition-opacity duration-700 ease-in-out ${
               index === current ? 'opacity-100 z-20' : 'opacity-0 z-10'
             }`}
           >
@@ -62,7 +62,7 @@ export default function Carousel() {
               {/*show only current slide cards */}
               <div className="block md:hidden mt-4">
                 {slide.cards.length > 0 && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                  <div className="grid grid-cols-1 md:grid-rows-4 md:grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
                     {slide.cards.map((item) => (
                       <StepCard key={item.id} item={item} />
                     ))}
@@ -73,16 +73,23 @@ export default function Carousel() {
               {/*show current and previous slide cards */}
               <div className="hidden md:grid grid-cols-2 grid-rows-2 sm:grid-cols-2 gap-4 md:gap-6 mt-6">
                 {visibleSlides.flatMap((s, slideIndex) =>
-                  s.cards.map((item) => (
-                    <div
-                      key={`${s.id}-${item.id}`}
-                      className={`transition-opacity duration-500 ${
-                        slideIndex === current ? 'opacity-100' : 'opacity-60'
-                      }`}
-                    >
-                      <StepCard item={item} />
-                    </div>
-                  ))
+                  s.cards.map((item) => {
+                    let opacityClass = 'opacity-60'; // default for previous slides
+
+                    if (slideIndex === current || slideIndex === 4) {
+                      // current slide or slide 5 → full opacity
+                      opacityClass = 'opacity-100';
+                    }
+
+                    return (
+                      <div
+                        key={`${s.id}-${item.id}`}
+                        className={`transition-opacity duration-500 ${opacityClass}`}
+                      >
+                        <StepCard item={item} />
+                      </div>
+                    );
+                  })
                 )}
               </div>
             </div>

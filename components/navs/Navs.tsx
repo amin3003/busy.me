@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const navLinks = [
-  { name: 'ABOUT US', href: '#' },
-  { name: 'ALL FEATURES', href: '#' },
-  { name: 'SIGN UP FOR FREE', href: '#' }
+  { name: 'ABOUT US', href: '#about-us' },
+  { name: 'ALL FEATURES', href: '#all-features' },
+  { name: 'SIGN UP FOR FREE', href: '#' },
 ];
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);

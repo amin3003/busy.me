@@ -1,11 +1,18 @@
-import {  Agreements, Banner, Carousel } from '@/components';
+import {
+  Agreements,
+  Banner,
+  Carousel,
+  FeatureShowcase,
+  AboutUs,
+} from '@/components';
 
 export default function Home() {
   return (
     <div className="">
       <Banner />
-      <Carousel/>
-      <Agreements />
+      <Carousel />
+      <FeatureShowcase />
+      <AboutUs />
     </div>
   );
 }

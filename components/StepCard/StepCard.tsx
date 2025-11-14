@@ -21,14 +21,13 @@ const StepCard: React.FC<StepCardProps> = ({ item }) => {
   return (
     <div
       className="
-        flex items-start space-x-3 sm:space-x-4 h-auto md:h-30
-        p-3 sm:p-4 
+         flex gap-2 md:flex-col md:justify-center md:items-center lg:items-start space-x-3 sm:space-x-4 sm:h-auto md:h-35 lg:h-38 p-4
         bg-white shadow rounded-2xl hover:shadow-lg 
         transition-all duration-300
         w-full
       "
     >
-      <div className="flex-shrink-0">
+      <div className="shrink-0">
         <img
           src={item.img}
           alt={item.title}
@@ -41,7 +40,7 @@ const StepCard: React.FC<StepCardProps> = ({ item }) => {
           className="
             font-semibold 
             text-gray-900 
-            text-sm sm:text-base md:text-lg 
+             text-sm 
             leading-tight truncate
           "
         >
@@ -52,7 +51,7 @@ const StepCard: React.FC<StepCardProps> = ({ item }) => {
           <p
             className="
               text-gray-500 
-              text-xs sm:text-sm 
+              text-xs
               mt-0.5 sm:mt-1
               leading-snug
             "
@@ -63,9 +62,9 @@ const StepCard: React.FC<StepCardProps> = ({ item }) => {
 
         <div
           className="
-            text-gray-700 
+            text-gray-900
             mt-1 sm:mt-2 
-            text-xs sm:text-sm 
+            text-xs 
             leading-snug
           "
         >
