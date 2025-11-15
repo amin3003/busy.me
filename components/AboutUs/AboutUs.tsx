@@ -4,7 +4,7 @@ import aboutData from '@/data/aboutData.json';
 export default function AboutUs() {
   return (
     <section className="bg-gray-50 py-16 sm:py-20 px-4 sm:px-6 lg:px-20">
-      <div className="space-y-8 md:space-y-10 text-justify  mx-auto">
+      <div className="max-w-screen-xl mx-auto space-y-8 md:space-y-10 text-justify">
         {/* Title */}
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-center md:text-left">
           {aboutData.title.map((part, idx) => (
@@ -14,19 +14,19 @@ export default function AboutUs() {
           ))}
         </h2>
 
-        {/* Intro Paragraphs */}
-        {aboutData.intro.map((text, index) => (
+        {/* Intro paragraphs */}
+        {aboutData.intro.map((text, idx) => (
           <p
-            key={index}
+            key={idx}
             className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed"
           >
             {text}
           </p>
         ))}
 
-        {/* Dynamic Sections */}
-        {aboutData.sections.map((section, index) => (
-          <div key={index} className="space-y-4">
+        {/* Dynamic sections */}
+        {aboutData.sections.map((section, idx) => (
+          <div key={idx} className="space-y-4">
             <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-800 border-l-4 border-[#6DC43A] pl-4">
               {section.title}
             </h3>
@@ -37,11 +37,10 @@ export default function AboutUs() {
               </p>
             )}
 
-            {/* List Items */}
             {section.items && (
               <ul className="list-disc list-inside text-gray-700 space-y-2 pl-6 sm:pl-8">
-                {section.items.map((item, idx) => (
-                  <li key={idx} className="text-base sm:text-lg">
+                {section.items.map((item, i) => (
+                  <li key={i} className="text-base sm:text-lg">
                     {item}
                   </li>
                 ))}
@@ -56,7 +55,7 @@ export default function AboutUs() {
           </div>
         ))}
 
-        {/* Static Privacy Section */}
+        {/* Privacy section */}
         <div className="space-y-4">
           <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-800 border-l-4 border-[#6DC43A] pl-4">
             Privacy and Data Protection

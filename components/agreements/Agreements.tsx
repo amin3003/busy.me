@@ -15,8 +15,7 @@ export default function Agreement({ name }: AgreementProps) {
       try {
         const res = await fetch(`/agreements/${name}.md`);
         if (res.ok) {
-          const text = await res.text();
-          setMarkdown(text);
+          setMarkdown(await res.text());
         } else {
           setMarkdown('# Error: Markdown file not found.');
         }
@@ -28,24 +27,51 @@ export default function Agreement({ name }: AgreementProps) {
     fetchMarkdown();
   }, [name]);
 
+  const title =
+    name === 'privacy_policy'
+      ? 'Privacy Policy'
+      : name === 'terms_of_service'
+      ? 'Terms of Service'
+      : 'Agreement';
+
   return (
-    <div className="bg-gray-50 min-h-screen pt-24 px-4 sm:px-6 lg:px-20">
-      <div className=" w-full bg-slate-50 px-4 sm:px-6 lg:px-20 py-10 lg:py-14 lg:min-h-screen flex flex-col justify-between">
+    <div className="bg-white min-h-screen pt-28 pb-24 px-5 sm:px-8">
+      <header className="max-w-4xl mx-auto mb-16">
+        <h1
+          className="text-4xl sm:text-5xl font-bold tracking-tight"
+          style={{ color: '#464646' }}
+        >
+          {title}
+        </h1>
+
         <div
-          className="prose prose-lg sm:prose-xl text-gray-900
-                     prose-headings:font-semibold
-                     prose-headings:text-gray-800
-                     prose-p:text-gray-700
-                     prose-li:text-gray-700
-                     prose-a:text-blue-600
-                     dark:prose-headings:text-gray-100
-                     dark:prose-p:text-gray-300
-                     dark:prose-li:text-gray-300
-                     dark:prose-a:text-blue-400
-                     "
-          dangerouslySetInnerHTML={{ __html: marked(markdown) }}
+          className="mt-6 h-1 w-24 rounded-full"
+          style={{ backgroundColor: '#6DC43A' }}
         />
-      </div>
+      </header>
+
+      <main
+        className="
+          max-w-4xl mx-auto
+          prose prose-lg sm:prose-xl
+          text-gray-700
+          leading-relaxed
+
+          prose-headings:font-bold
+          prose-headings:tracking-tight
+          prose-headings:text-gray-900
+          prose-h2:mt-12 prose-h2:mb-4
+          prose-h3:mt-10 prose-h3:mb-3
+
+          prose-p:my-4
+          prose-li:my-1.5
+          prose-strong:text-gray-900
+
+          prose-a:no-underline
+          hover:prose-a:underline
+        "
+        dangerouslySetInnerHTML={{ __html: marked(markdown) }}
+      />
     </div>
   );
 }

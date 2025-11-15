@@ -1,3 +1,4 @@
+/* Main layout with navbar and footer */
 import type { Metadata } from 'next';
 import './globals.css';
 import { Footer, Navs } from '@/components';
