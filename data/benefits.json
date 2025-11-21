@@ -1,115 +1,256 @@
 {
     "emails": {
         "idPrefix": "emails",
-        "picName": "/features/collapsed.png",
         "description": "Handle your inbox, templates and smart filters all in one place.",
-        "features": [
+        "subParts": [
             {
-                "label": "Smart Inbox",
-                "zoomPos": {
-                    "x": "20%",
-                    "y": "30%"
-                }
+                "title": "Collapsed",
+                "picName": "/features/collapsed.png",
+                "features": [
+                    {
+                        "label": "Each email title",
+                        "zoomPos": {
+                            "x": "20%",
+                            "y": "30%"
+                        }
+                    },
+                    {
+                        "label": "Each contact associated with email",
+                        "zoomPos": {
+                            "x": "50%",
+                            "y": "40%"
+                        }
+                    },
+                    {
+                        "label": "All attached documents",
+                        "zoomPos": {
+                            "x": "70%",
+                            "y": "50%"
+                        }
+                    },
+                    {
+                        "label": "Tasks, events, notes associated",
+                        "zoomPos": {
+                            "x": "40%",
+                            "y": "60%"
+                        }
+                    },
+                    {
+                        "label": "Unread emails indicator",
+                        "zoomPos": {
+                            "x": "80%",
+                            "y": "30%"
+                        }
+                    }
+                ]
             },
             {
-                "label": "Templates",
-                "zoomPos": {
-                    "x": "50%",
-                    "y": "25%"
-                }
+                "title": "Expanded Fully",
+                "picName": "/features/expanded-fully.png",
+                "features": [
+                    {
+                        "label": "Include tasks, events, notes in thread",
+                        "zoomPos": {
+                            "x": "30%",
+                            "y": "25%"
+                        }
+                    },
+                    {
+                        "label": "Clear visual appearance",
+                        "zoomPos": {
+                            "x": "60%",
+                            "y": "40%"
+                        }
+                    },
+                    {
+                        "label": "Change thread title",
+                        "zoomPos": {
+                            "x": "50%",
+                            "y": "55%"
+                        }
+                    }
+                ]
             },
             {
-                "label": "Scheduled Send",
-                "zoomPos": {
-                    "x": "78%",
-                    "y": "40%"
-                }
+                "title": "Expanded Reply",
+                "picName": "/features/expanded-reply.png",
+                "features": [
+                    {
+                        "label": "Reply to email within thread",
+                        "zoomPos": {
+                            "x": "35%",
+                            "y": "45%"
+                        }
+                    },
+                    {
+                        "label": "Add entity to existing thread",
+                        "zoomPos": {
+                            "x": "65%",
+                            "y": "50%"
+                        }
+                    },
+                    {
+                        "label": "Copy content from previous message",
+                        "zoomPos": {
+                            "x": "80%",
+                            "y": "35%"
+                        }
+                    }
+                ]
+            },
+            {
+                "title": "New Message",
+                "picName": "/features/new-msg.png",
+                "features": [
+                    {
+                        "label": "Universal Input for all objects",
+                        "zoomPos": {
+                            "x": "25%",
+                            "y": "40%"
+                        }
+                    },
+                    {
+                        "label": "Add entity to existing thread",
+                        "zoomPos": {
+                            "x": "50%",
+                            "y": "50%"
+                        }
+                    },
+                    {
+                        "label": "Attach contact card with Intro",
+                        "zoomPos": {
+                            "x": "75%",
+                            "y": "35%"
+                        }
+                    }
+                ]
             }
         ]
     },
     "tasks": {
         "idPrefix": "tasks",
-        "picName": "/features/task-newthread.png",
         "description": "Plan, assign and track tasks with priorities and timelines.",
-        "features": [
+        "subParts": [
             {
-                "label": "Kanban Board",
-                "zoomPos": {
-                    "x": "35%",
-                    "y": "50%"
-                }
+                "title": "All Tasks",
+                "picName": "/features/tasks-all.png",
+                "features": [
+                    {
+                        "label": "Tasks listed simply",
+                        "zoomPos": {
+                            "x": "25%",
+                            "y": "35%"
+                        }
+                    },
+                    {
+                        "label": "Organized by due dates",
+                        "zoomPos": {
+                            "x": "50%",
+                            "y": "40%"
+                        }
+                    },
+                    {
+                        "label": "Identify email-linked tasks",
+                        "zoomPos": {
+                            "x": "70%",
+                            "y": "45%"
+                        }
+                    },
+                    {
+                        "label": "Identify important tasks",
+                        "zoomPos": {
+                            "x": "80%",
+                            "y": "50%"
+                        }
+                    },
+                    {
+                        "label": "Identify 'waiting on' tasks",
+                        "zoomPos": {
+                            "x": "60%",
+                            "y": "30%"
+                        }
+                    },
+                    {
+                        "label": "Browse by categories and filters",
+                        "zoomPos": {
+                            "x": "40%",
+                            "y": "60%"
+                        }
+                    }
+                ]
             },
             {
-                "label": "Subtasks",
-                "zoomPos": {
-                    "x": "60%",
-                    "y": "30%"
-                }
-            },
-            {
-                "label": "Reminders",
-                "zoomPos": {
-                    "x": "85%",
-                    "y": "60%"
-                }
+                "title": "New Thread",
+                "picName": "/features/task-newthread.png",
+                "features": [
+                    {
+                        "label": "Start new thread from any object",
+                        "zoomPos": {
+                            "x": "50%",
+                            "y": "40%"
+                        }
+                    }
+                ]
             }
         ]
     },
     "events": {
         "idPrefix": "events",
-        "picName": "/features/events.png",
         "description": "Calendar, scheduling and integrated video links.",
-        "features": [
+        "subParts": [
             {
-                "label": "Calendar View",
-                "zoomPos": {
-                    "x": "30%",
-                    "y": "45%"
-                }
-            },
-            {
-                "label": "Invites",
-                "zoomPos": {
-                    "x": "65%",
-                    "y": "30%"
-                }
-            },
-            {
-                "label": "Availability",
-                "zoomPos": {
-                    "x": "90%",
-                    "y": "55%"
-                }
+                "title": "Event Overview",
+                "picName": "/features/events.png",
+                "features": [
+                    {
+                        "label": "Events listed chronologically",
+                        "zoomPos": {
+                            "x": "30%",
+                            "y": "45%"
+                        }
+                    },
+                    {
+                        "label": "Mark important events",
+                        "zoomPos": {
+                            "x": "50%",
+                            "y": "55%"
+                        }
+                    },
+                    {
+                        "label": "Assign/filter by calendars",
+                        "zoomPos": {
+                            "x": "70%",
+                            "y": "50%"
+                        }
+                    }
+                ]
             }
         ]
     },
     "notes": {
         "idPrefix": "notes",
-        "picName": "/features/notes.png",
         "description": "Quick notes, rich text and linked notebooks for context.",
-        "features": [
+        "subParts": [
             {
-                "label": "Rich Editor",
-                "zoomPos": {
-                    "x": "25%",
-                    "y": "40%"
-                }
-            },
-            {
-                "label": "Notebook Links",
-                "zoomPos": {
-                    "x": "55%",
-                    "y": "35%"
-                }
-            },
-            {
-                "label": "Search",
-                "zoomPos": {
-                    "x": "75%",
-                    "y": "20%"
-                }
+                "title": "Quick Notes",
+                "picName": "/features/notes.png",
+                "features": [
+                    {
+                        "label": "Link notes with emails",
+                        "zoomPos": {
+                            "x": "30%",
+                            "y": "40%"
+                        }
+                    },
+                    {
+                        "label": "Mark notes as important",
+                        "zoomPos": {
+                            "x": "50%",
+                            "y": "45%"
+                        }
+                    }
+                ]
             }
         ]
     }
-   
 }

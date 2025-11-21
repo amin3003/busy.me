@@ -5,44 +5,64 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import benefitsData from '@/data/benefits.json';
 
-// Type for keys of benefitsData
 type BenefitKey = keyof typeof benefitsData;
 
-// Type for a single feature item
 interface FeatureItem {
   label: string;
   zoomPos: { x: string; y: string };
 }
 
-// Type for data of a category
-interface BenefitCategory {
-  idPrefix: string;
+interface SubPart {
+  title: string;
   picName: string;
-  description: string;
   features: FeatureItem[];
 }
 
-export default function FeatureShowcase() {
+interface BenefitCategory {
+  idPrefix: string;
+  description: string;
+  subParts: SubPart[];
+}
+
+export default function FeatureOverlayPanelFixed() {
   const navKeys = Object.keys(benefitsData) as BenefitKey[];
+
   const [selectedNav, setSelectedNav] = useState<BenefitKey>(navKeys[0]);
-  const [selectedFeatureIndex, setSelectedFeatureIndex] = useState(0);
-  const [activeZoomIndex, setActiveZoomIndex] = useState(-1);
+  const [activeSubPartIndex, setActiveSubPartIndex] = useState<number>(0);
+  const [activeFeatureIndex, setActiveFeatureIndex] = useState<number | null>(
+    null
+  );
+  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
 
   const current: BenefitCategory = useMemo(
     () => benefitsData[selectedNav],
     [selectedNav]
   );
 
-  const onSubtitleClick = (index: number) => {
-    setActiveZoomIndex((prev) => (prev === index ? -1 : index));
-    setSelectedFeatureIndex(index);
+  const activeSubPart = current.subParts[activeSubPartIndex];
+
+  // Open subPart in mobile overlay
+  const openSubPart = (idx: number) => {
+    setActiveSubPartIndex(idx);
+    setActiveFeatureIndex(null); // Reset zoom when changing subPart
+    setIsOverlayOpen(true);
   };
 
-  const resetZoom = () => setActiveZoomIndex(-1);
+  // Toggle feature zoom
+  const onSubtitleClick = (featureIndex: number) => {
+    setActiveFeatureIndex((prev) =>
+      prev === featureIndex ? null : featureIndex
+    );
+  };
+
+  // Close overlay
+  const closeOverlay = () => {
+    setIsOverlayOpen(false);
+    setActiveFeatureIndex(null);
+  };
 
   return (
-    <section className="w-full bg-slate-50 px-4  sm:px-6 lg:px-20 py-10 lg:py-14 lg:min-h-screen flex flex-col justify-between">
-      {/* Title */}
+    <section className="w-full bg-slate-50 px-4 sm:px-6 lg:px-20 py-10 lg:py-14 flex flex-col gap-6">
       <h2 className="text-3xl sm:text-5xl lg:text-7xl font-semibold mb-6 sm:mb-10 text-center lg:text-left uppercase leading-tight">
         <span className="text-[#6DC43A]">busy.me</span>{' '}
         <span className="text-[#464646]">Key Features</span>
@@ -55,13 +75,14 @@ export default function FeatureShowcase() {
             key={k}
             onClick={() => {
               setSelectedNav(k);
-              setSelectedFeatureIndex(0);
-              setActiveZoomIndex(-1);
+              setActiveSubPartIndex(0);
+              setActiveFeatureIndex(null);
+              setIsOverlayOpen(false);
             }}
             className={`px-4 py-2 rounded-md text-sm sm:text-base font-medium transition ${
               selectedNav === k
                 ? 'bg-slate-100 text-[#6DC43A] shadow-sm'
-                : 'text-slate-500 hover:bg-slate-50'
+                : 'text-black hover:bg-slate-50'
             }`}
           >
             {k.toUpperCase()}
@@ -69,82 +90,172 @@ export default function FeatureShowcase() {
         ))}
       </div>
 
-      {/* Main content */}
-      <div className="flex flex-col lg:flex-row grow items-stretch shadow-sm overflow-hidden rounded-2xl bg-white w-full">
-        {/* Left feature list */}
-        <div className="w-full lg:w-1/3 p-5 sm:p-8 border-b lg:border-b-0 lg:border-r border-slate-100 flex flex-col justify-center">
-          <p className="text-lg sm:text-2xl text-[#464646] font-bold mb-4 sm:mb-6">
-            {current.description}
-          </p>
-          <ul className="space-y-2 sm:space-y-3">
-            {current.features.map((f, idx) => (
-              <li key={idx}>
-                <button
-                  onClick={() => onSubtitleClick(idx)}
-                  className={`w-full text-left px-3 py-2 rounded-md transition flex items-center justify-between text-sm sm:text-base ${
-                    activeZoomIndex === idx
-                      ? 'bg-slate-100 text-[#6DC43A] font-semibold shadow-sm'
-                      : 'hover:bg-slate-50 text-[#464646]'
+      {/* Desktop */}
+      <div className="hidden lg:flex lg:flex-row gap-6">
+        <div className="w-1/3 flex flex-col gap-3">
+          {current.subParts.map((subPart, idx) => (
+            <div
+              key={idx}
+              className="border rounded-lg bg-white shadow-sm overflow-hidden"
+            >
+              <button
+                className="w-full text-left px-5 py-3 text-black bg-gray-50 hover:bg-gray-100 flex justify-between items-center font-medium"
+                onClick={() => setActiveSubPartIndex(idx)}
+              >
+                <span>{subPart.title}</span>
+                <span
+                  className={`transform transition-transform ${
+                    activeSubPartIndex === idx ? 'rotate-180' : ''
                   }`}
                 >
-                  <span>{f.label}</span>
-                  {activeZoomIndex === idx && (
+                  ▼
+                </span>
+              </button>
+
+              {activeSubPartIndex === idx && (
+                <div className="p-4 space-y-2">
+                  {subPart.features.map((feature, fIdx) => (
+                    <button
+                      key={fIdx}
+                      onClick={() => onSubtitleClick(fIdx)}
+                      className={`w-full text-left px-3 py-2 rounded-md transition flex items-center justify-between text-sm sm:text-base ${
+                        activeFeatureIndex === fIdx
+                          ? 'bg-slate-100 text-[#6DC43A] font-semibold shadow-sm'
+                          : 'hover:bg-slate-50 text-black'
+                      }`}
+                    >
+                      <span>{feature.label}</span>
+                      {activeFeatureIndex === fIdx && (
+                        <span className="ml-2 text-xs text-slate-400">
+                          ZOOM
+                        </span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop Image */}
+        <div className="relative w-2/3 h-[500px] bg-white overflow-hidden rounded-2xl shadow-sm flex-grow">
+          {activeSubPart && (
+            <motion.div
+              className="absolute inset-0 overflow-hidden"
+              animate={{
+                scale:
+                  activeFeatureIndex !== null &&
+                  activeSubPart.features[activeFeatureIndex]
+                    ? 2
+                    : 1,
+                transformOrigin:
+                  activeFeatureIndex !== null &&
+                  activeSubPart.features[activeFeatureIndex]
+                    ? `${activeSubPart.features[activeFeatureIndex].zoomPos.x} ${activeSubPart.features[activeFeatureIndex].zoomPos.y}`
+                    : 'center center',
+              }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <Image
+                src={activeSubPart.picName}
+                alt={`${selectedNav} - ${activeSubPart.title}`}
+                fill
+                className="object-contain object-center"
+                priority
+              />
+            </motion.div>
+          )}
+        </div>
+      </div>
+
+      {/* Mobile */}
+      <div className="lg:hidden flex flex-col gap-3">
+        {current.subParts.map((subPart, idx) => (
+          <button
+            key={idx}
+            onClick={() => openSubPart(idx)}
+            className="w-full bg-white rounded-lg shadow-md p-4 text-left font-medium text-black"
+          >
+            {subPart.title}
+          </button>
+        ))}
+      </div>
+
+      {/* Mobile Overlay */}
+      {isOverlayOpen && activeSubPart && (
+        <div
+          className="fixed inset-0 z-50 flex justify-center items-end bg-black/50"
+          onClick={closeOverlay} // Close when clicking outside
+        >
+          <div
+            className="bg-white rounded-t-2xl max-h-[90%] overflow-auto p-4 w-full"
+            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+          >
+            {/* Close Button */}
+            <div className="flex justify-end mb-4">
+              <button
+                onClick={closeOverlay}
+                className="text-gray-500 hover:text-gray-800 text-lg font-bold"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="mb-4">
+              <h3 className="text-lg font-bold">{activeSubPart.title}</h3>
+            </div>
+
+            {/* Image */}
+            <div className="relative w-full h-64 sm:h-96 mb-4 overflow-hidden rounded-lg">
+              <motion.div
+                className="absolute inset-0"
+                animate={{
+                  scale:
+                    activeFeatureIndex !== null &&
+                    activeSubPart.features[activeFeatureIndex]
+                      ? 2
+                      : 1,
+                  transformOrigin:
+                    activeFeatureIndex !== null &&
+                    activeSubPart.features[activeFeatureIndex]
+                      ? `${activeSubPart.features[activeFeatureIndex].zoomPos.x} ${activeSubPart.features[activeFeatureIndex].zoomPos.y}`
+                      : 'center center',
+                }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <Image
+                  src={activeSubPart.picName}
+                  alt={`${selectedNav} - ${activeSubPart.title}`}
+                  fill
+                  className="object-contain object-center pointer-events-none"
+                  priority
+                />
+              </motion.div>
+            </div>
+
+            {/* Features */}
+            <div className="space-y-2">
+              {activeSubPart.features.map((feature, fIdx) => (
+                <button
+                  key={fIdx}
+                  onClick={() => onSubtitleClick(fIdx)}
+                  className={`w-full text-left px-3 py-2 rounded-md transition flex items-center justify-between text-sm ${
+                    activeFeatureIndex === fIdx
+                      ? 'bg-slate-100 text-[#6DC43A] font-semibold shadow-sm'
+                      : 'hover:bg-slate-50 text-black'
+                  }`}
+                >
+                  <span>{feature.label}</span>
+                  {activeFeatureIndex === fIdx && (
                     <span className="ml-2 text-xs text-slate-400">ZOOM</span>
                   )}
                 </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Right image */}
-        <div className="relative w-full lg:w-2/3 h-72 sm:h-96 lg:h-auto bg-white overflow-hidden flex-grow">
-          <motion.div
-            className="absolute inset-0"
-            animate={{
-              scale: activeZoomIndex !== -1 ? 2 : 1,
-              transformOrigin:
-                activeZoomIndex !== -1
-                  ? `${current.features[activeZoomIndex].zoomPos.x} ${current.features[activeZoomIndex].zoomPos.y}`
-                  : 'center center',
-            }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <Image
-              src={current.picName}
-              alt={`${selectedNav} preview`}
-              fill
-              className="object-contain object-right"
-              priority
-            />
-          </motion.div>
-
-          <button
-            onClick={resetZoom}
-            aria-label="Reset zoom"
-            className="absolute inset-0 focus:outline-none cursor-zoom-out"
-          />
-
-          <div className="absolute right-2 bottom-2 sm:right-5 sm:bottom-4 rounded-md bg-white/90 text-xs sm:text-sm px-2 sm:px-3 py-1 shadow-sm hidden md:flex items-center gap-2">
-            <svg
-              className="w-4 h-4 text-slate-500"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M12 3v3M12 18v3M3 12h3M18 12h3"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <span className="text-slate-700">
-              Tap a subtitle to zoom that area
-            </span>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }
