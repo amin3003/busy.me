@@ -5,63 +5,64 @@ import Image from 'next/image';
 
 export type StepItem = {
   id: number;
-  img: string;
   title: string;
   subtitle?: string;
-  type?: 'time-range' | 'time-single' | 'content';
+  icon?:any,
+  type?: 'time-range' | 'time-single' | 'content' | string;
   date?: string;
   start?: string;
   end?: string;
   time?: string;
   content?: string;
+  description?: string;
+  how_it_works?: string;
 };
 
-interface StepCardProps {
-  item: StepItem;
-}
 
-const StepCard: React.FC<StepCardProps> = ({ item }) => {
+const StepCard: React.FC<{ item: StepItem }> = ({ item }) => {
   return (
-    <div className="flex gap-2 md:flex-col md:justify-center md:items-center lg:items-start space-x-3 sm:space-x-4 sm:h-auto md:h-35 lg:h-38 p-4 bg-white shadow rounded-2xl hover:shadow-lg transition-all duration-300 w-full">
-      {/* Icon */}
-      <div className="shrink-0">
-        <Image
-          src={item.img}
-          alt={item.title}
-          width={28} // matches Tailwind w-6 / sm:w-7
-          height={28}
-          className="object-contain"
-        />
-      </div>
-
-      {/* Content */}
-      <div className="flex-1 min-w-0">
-        <h3 className="font-semibold text-gray-900 text-sm leading-tight truncate">
-          {item.title}
-        </h3>
-
-        {item.subtitle && (
-          <p className="text-gray-500 text-xs mt-0.5 sm:mt-1 leading-snug">
-            {item.subtitle}
-          </p>
+    <div
+      className="w-72 h-80 flex flex-col p-5 bg-white/30  backdrop-blur-md
+                rounded-xl shadow-md border border-white/20 text-[#464646]
+                transition-transform duration-300 ease-in-out hover:scale-105
+                hover:shadow-lg"
+    >
+      {/* Top Section */}
+      <div className="flex flex-col items-center text-center grow">
+        {item.icon && (
+          <div
+            className="w-10 h-10 mb-3 text-[#464646]"
+            dangerouslySetInnerHTML={{ __html: item.icon }}
+          />
         )}
 
-        <div className="text-gray-900 mt-1 sm:mt-2 text-xs leading-snug">
-          {item.type === 'time-range' ? (
-            <span>
-              <span className="font-semibold">{item.date}</span>{' '}
-              <time>{item.start}</time> → <time>{item.end}</time>
-            </span>
-          ) : item.type === 'time-single' ? (
-            <span>
-              <span className="font-semibold">{item.date}</span>{' '}
-              <time>{item.time}</time>
-            </span>
-          ) : (
-            <p>{item.content}</p>
-          )}
-        </div>
+        <h3 className="font-bold text-lg line-clamp-2">{item.title}</h3>
+
+        {item.subtitle && (
+          <p className="text-xs mt-1 line-clamp-2">{item.subtitle}</p>
+        )}
+
+        {item.type === 'time-range' && (
+          <p className="text-xs mt-2">
+            <span className="font-semibold">{item.date}</span> {item.start} →{' '}
+            {item.end}
+          </p>
+        )}
+        {item.type === 'time-single' && (
+          <p className="text-xs mt-2">
+            <span className="font-semibold">{item.date}</span> {item.time}
+          </p>
+        )}
       </div>
+
+      {/* Divider */}
+      <hr className="w-full border-t border-black my-3" />
+
+      {/* Bottom Section */}
+      {item.description && <p className="text-sm mb-2">{item.description}</p>}
+      {/* {item.how_it_works && (
+    <p className="text-xs text-gray-700">{item.how_it_works}</p>
+  )} */}
     </div>
   );
 };

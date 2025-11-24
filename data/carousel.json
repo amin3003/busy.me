@@ -9,11 +9,13 @@
         "cards": [
             {
                 "id": 1,
-                "img": "/home/avatar.jpg",
+                "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-inbox-icon lucide-inbox\"><polyline points=\"22 12 16 12 14 15 10 15 8 12 2 12\"/><path d=\"M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z\"/></svg>",
                 "title": "Email received",
                 "subtitle": "Julia sent you a message",
                 "type": "content",
-                "content": "She wants to schedule a meeting about the new design."
+                "content": "She wants to schedule a meeting about the new design.",
+                "description": "You start by receiving an email from Julia. busy.me automatically captures the context so you don’t lose track.",
+                "how_it_works": "busy.me detects the incoming email and shows it as a card so you can immediately act on it."
             }
         ]
     },
@@ -27,12 +29,14 @@
         "cards": [
             {
                 "id": 1,
-                "img": "/home/event.png",
+                "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-calendar-check-icon lucide-calendar-check\"><path d=\"M8 2v4\"/><path d=\"M16 2v4\"/><rect width=\"18\" height=\"18\" x=\"3\" y=\"4\" rx=\"2\"/><path d=\"M3 10h18\"/><path d=\"m9 16 2 2 4-4\"/></svg>",
                 "title": "Meeting scheduled",
                 "type": "time-range",
                 "date": "Tomorrow",
                 "start": "4:40 PM",
-                "end": "5:00 PM"
+                "end": "5:00 PM",
+                "description": "After reading Julia’s email, you confirm a meeting time. busy.me keeps everything aligned with your schedule.",
+                "how_it_works": "You pick a time, and busy.me instantly creates a connected event so you don’t have to enter details twice."
             }
         ]
     },
@@ -46,18 +50,22 @@
         "cards": [
             {
                 "id": 1,
-                "img": "/home/task.png",
+                "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-bell-plus-icon lucide-bell-plus\"><path d=\"M10.268 21a2 2 0 0 0 3.464 0\"/><path d=\"M15 8h6\"/><path d=\"M18 5v6\"/><path d=\"M20.002 14.464a9 9 0 0 0 .738.863A1 1 0 0 1 20 17H4a1 1 0 0 1-.74-1.673C4.59 13.956 6 12.499 6 8a6 6 0 0 1 8.75-5.332\"/></svg>",
                 "title": "Prepare sketches for Julia",
                 "type": "time-range",
                 "date": "Tomorrow",
                 "start": "4:40 PM",
-                "end": "5:00 PM"
+                "end": "5:00 PM",
+                "description": "Once the meeting is set, you create a task so you’re prepared. busy.me links your tasks to the meeting automatically.",
+                "how_it_works": "A task is added and connected to Julia, your meeting, and your workspace—everything stays in one workflow."
             }
         ]
     },
     {
         "id": 4,
         "title": "I add notes for our meeting",
+        "description": "You add quick notes to keep track of ideas before you meet Julia. busy.me attaches them to your meeting timeline.",
+        "how_it_works": "Notes are instantly synced with your meeting card so you can access them during or after the call.",
         "image": {
             "src": "/cards/img-step4.png",
             "alt": "Step 4 - Notes"
@@ -65,19 +73,28 @@
         "cards": [
             {
                 "id": 1,
-                "img": "/home/note.png",
+                "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-notebook-pen-icon lucide-notebook-pen\"><path d=\"M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4\"/><path d=\"M2 6h4\"/><path d=\"M2 10h4\"/><path d=\"M2 14h4\"/><path d=\"M2 18h4\"/><path d=\"M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z\"/></svg>",
                 "title": "Add meeting notes",
-                "content": "Remember to discuss UI updates."
+                "content": "Remember to discuss UI updates.",
+                "description": "You add quick notes to keep track of ideas before you meet Julia. busy.me attaches them to your meeting timeline.",
+                "how_it_works": "Notes are instantly synced with your meeting card so you can access them during or after the call."
             }
         ]
     },
     {
         "id": 5,
         "title": "With busy.me, everything stays <strong>linked and organized</strong>",
+        "description": "All your emails, tasks, events, and notes work together seamlessly—nothing gets lost.",
+        "how_it_works": "busy.me keeps all elements connected automatically, so your workflow stays clean without manual syncing.",
         "image": {
             "src": "/cards/macbook.png",
             "alt": "Step 5 - Busy.me summary"
         },
-        "cards": []
+        "cards": [
+            {
+                "description": "All your emails, tasks, events, and notes work together seamlessly—nothing gets lost.",
+                "how_it_works": "busy.me keeps all elements connected automatically, so your workflow stays clean without manual syncing."
+            }
+        ]
     }
 ]

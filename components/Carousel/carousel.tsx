@@ -26,7 +26,10 @@ export default function Carousel() {
   const visibleSlides = slides.slice(0, current + 1);
 
   return (
-    <div className="relative w-full h-[70vh] md:h-[85vh] lg:h-screen overflow-hidden bg-gray-50 flex items-center justify-center px-10">
+    <div
+      
+      className="relative w-full h-[70vh] md:h-[85vh] lg:h-screen overflow-hidden bg-gray-50 flex items-center justify-center px-10"
+    >
       {/* Slides */}
       {slides.map((slide, index) => (
         <div

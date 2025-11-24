@@ -6,6 +6,7 @@ import {
   Carousel,
   FeatureShowcase,
   AboutUs,
+  HeroSinglePage,
 } from '@/components';
 
 export default function Home() {
@@ -40,7 +41,8 @@ export default function Home() {
   return (
     <div className="">
       <Banner />
-      <Carousel />
+      {/* <Carousel /> */}
+      <HeroSinglePage/>
       <section id="all-features">
         <FeatureShowcase />
       </section>
