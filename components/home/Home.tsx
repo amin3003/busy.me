@@ -42,14 +42,13 @@ export default function Home() {
     <div className="">
       <Banner />
       {/* <Carousel /> */}
-      <HeroSinglePage/>
+      <HeroSinglePage />
       <section id="all-features">
         <FeatureShowcase />
       </section>
       <section id="about-us">
         <AboutUs />
       </section>
-     
     </div>
   );
 }

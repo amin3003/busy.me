@@ -110,7 +110,7 @@ export default function InteractiveRoadmap({
           {steps.map((step, index) => (
             <div
               key={`mobile-${step.id}-${index}`}
-              className="snap-center shrink-0"
+              className="snap-center shrink mb-5"
             >
               <StepCard item={step} />
             </div>

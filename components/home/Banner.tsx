@@ -52,11 +52,11 @@ export default function Banner() {
       {/* <div aria-hidden="true" className="absolute inset-0 -z-10 bg-black/10" /> */}
 
       {/* Hero content */}
-      <div className="relative text-center z-10 flex flex-col items-center justify-center px-6 max-w">
+      <div className="relative text-center z-10 flex flex-col items-center justify-center px-6 max-w mt-15 md:mt-2">
         <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 capitalize">
           A new way of working with emails
         </h1>
-        <p className="text-lg text-center md:text-xl text-gray-200 leading-relaxed mb-10 max-w-3xl">
+        <p className="text-sm text-center md:text-xl  text-gray-200 leading-relaxed mb-10 max-w-3xl">
           Busy.me by Appsbooth helps you organize your emails, tasks, events,
           and notes in one secure workspace. Sign in with your Appsbooth account
           to stay focused, connected, and productive.
@@ -68,7 +68,7 @@ export default function Banner() {
             href="https://my.busy.me"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-5 bg-white/30  backdrop-blur-md
+            className="p-5 bg-white/10  backdrop-blur-md
                 rounded-xl shadow-md border border-white/20 text-[#ffffff] px-8 py-3 text-sm font-semibold  hover:shadow-lg transition-all"
           >
             SIGN UP FOR FREE

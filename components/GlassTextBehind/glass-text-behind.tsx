@@ -33,8 +33,8 @@ export default function GlassTextBehind({
   const contentWrapperClasses =
     title != null
       ? dynamicMargin
-        ? 'mt-[-40px] lg:mt-[-5vw] lg:mt-[-160px]'
-        : 'mt-[-40px] lg:mt-[-160px]'
+        ? 'mt-[-40px] lg:mt-[-5vw] lg:mt-[-160px] '
+        : 'mt-[-70px] lg:mt-[-160px]'
       : '';
 
   return (
