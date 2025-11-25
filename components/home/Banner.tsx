@@ -24,10 +24,9 @@ export default function Banner() {
       <div aria-hidden="true" className="absolute inset-0 -z-10 bg-black/40" />
 
       {/* Hero content */}
-      <div className="relative z-10 text-center px-6 max-w-3xl">
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 capitalize">
-          A new way of working with{' '}
-          <span className="text-[#6DC43A]">emails</span>
+      <div className="relative z-10 text-center px-6 max-w-3xl w-full mt-20 md:mt-2">
+        <h1 className="text-2xl md:text-5xl w-full font-bold text-white mb-6 capitalize">
+          A new way of working with emails
         </h1>
         <p className="text-lg md:text-xl text-gray-200 leading-relaxed mb-10">
           Busy.me by Appsbooth helps you organize your emails, tasks, events,
@@ -45,13 +44,6 @@ export default function Banner() {
           >
             SIGN UP FOR FREE
           </Link>
-
-          <button
-            onClick={scrollToAbout}
-            className="text-sm font-semibold text-white hover:text-[#6DC43A] transition-colors"
-          >
-            Learn more <span aria-hidden="true">→</span>
-          </button>
         </div>
       </div>
     </div>
