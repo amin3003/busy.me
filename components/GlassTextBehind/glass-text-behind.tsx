@@ -23,14 +23,18 @@ export default function GlassTextBehind({
     opacity-100 select-none !leading-none !m-0 !p-0 font-extrabold
     bg-gradient-to-r from-[#6DC43A] to-[#ffffff] bg-clip-text text-transparent
     ${center ? 'text-center' : ''}
-    ${dynamicTitleSize ? 'text-[min(20vw,260px)]' : 'text-[260px]'}
+    ${
+      dynamicTitleSize
+        ? 'text-[12vw] lg:text-[min(20vw,260px)]'
+        : 'text-[12vw] lg:text-[260px]'
+    }
   `;
 
   const contentWrapperClasses =
     title != null
       ? dynamicMargin
-        ? 'mt-[-5vw] md:mt-[-100px] lg:mt-[-160px]'
-        : 'mt-[-160px]'
+        ? 'mt-[-40px] lg:mt-[-5vw] lg:mt-[-160px]'
+        : 'mt-[-40px] lg:mt-[-160px]'
       : '';
 
   return (
