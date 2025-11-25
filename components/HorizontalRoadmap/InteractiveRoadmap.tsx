@@ -17,14 +17,32 @@ export default function InteractiveRoadmap({
 
   const goNext = () => {
     if (!sliderRef.current) return;
-    const cardWidth = sliderRef.current.children[0].clientWidth;
-    sliderRef.current.scrollBy({ left: cardWidth + 24, behavior: 'smooth' });
+
+    const slider = sliderRef.current;
+    const cardWidth = slider.children[0].clientWidth + 24;
+    const maxScroll = slider.scrollWidth - slider.clientWidth;
+
+    // Infinite looping forward
+    if (slider.scrollLeft + cardWidth >= maxScroll) {
+      slider.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      slider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    }
   };
 
   const goPrev = () => {
     if (!sliderRef.current) return;
-    const cardWidth = sliderRef.current.children[0].clientWidth;
-    sliderRef.current.scrollBy({ left: -(cardWidth + 24), behavior: 'smooth' });
+
+    const slider = sliderRef.current;
+    const cardWidth = slider.children[0].clientWidth + 24;
+
+    // Infinite looping backward
+    if (slider.scrollLeft - cardWidth <= 0) {
+      const lastPos = slider.scrollWidth - slider.clientWidth;
+      slider.scrollTo({ left: lastPos, behavior: 'smooth' });
+    } else {
+      slider.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -34,7 +52,7 @@ export default function InteractiveRoadmap({
       dynamicTitleSize={false}
       dynamicMargin={false}
     >
-      {/* DESKTOP LAYOUT (unchanged) */}
+      {/* DESKTOP LAYOUT */}
       <div className="relative hidden md:flex flex-row flex-wrap justify-center items-start gap-12 mt-10">
         {steps.map((step, index) => (
           <div
@@ -47,16 +65,16 @@ export default function InteractiveRoadmap({
       </div>
 
       {/* MOBILE/TABLET SLIDER */}
-     
       <div className="relative md:hidden flex items-center justify-center h-[calc(100vh-4rem)] w-full">
-        {/* Floating Icon Buttons */}
+
+        {/* Prev Button */}
         <button
           onClick={goPrev}
           className="
-      absolute left-2 top-1/2 -translate-y-1/2 z-20
-      bg-white/40 backdrop-blur-md border border-white/30
-      rounded-full p-2 shadow-sm active:scale-90
-    "
+            absolute left-2 top-1/2 -translate-y-1/2 z-20
+            bg-white/40 backdrop-blur-md border border-white/30
+            rounded-full p-2 shadow-sm active:scale-90
+          "
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -66,21 +84,18 @@ export default function InteractiveRoadmap({
             strokeWidth="2"
             stroke="currentColor"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15 19l-7-7 7-7"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
           </svg>
         </button>
 
+        {/* Next Button */}
         <button
           onClick={goNext}
           className="
-      absolute right-2 top-1/2 -translate-y-1/2 z-20
-      bg-white/40 backdrop-blur-md border border-white/30
-      rounded-full p-2 shadow-sm active:scale-90
-    "
+            absolute right-2 top-1/2 -translate-y-1/2 z-20
+            bg-white/40 backdrop-blur-md border border-white/30
+            rounded-full p-2 shadow-sm active:scale-90
+          "
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -90,11 +105,7 @@ export default function InteractiveRoadmap({
             strokeWidth="2"
             stroke="currentColor"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M9 5l7 7-7 7"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
           </svg>
         </button>
 
@@ -102,10 +113,10 @@ export default function InteractiveRoadmap({
         <div
           ref={sliderRef}
           className="
-      flex flex-row gap-6
-      overflow-x-scroll no-scrollbar snap-x snap-mandatory
-      scroll-smooth px-8
-    "
+            flex flex-row gap-6
+            overflow-x-scroll no-scrollbar snap-x snap-mandatory
+            scroll-smooth px-8
+          "
         >
           {steps.map((step, index) => (
             <div
