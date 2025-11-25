@@ -7,5 +7,5 @@ export { default as Banner } from './home/Banner';
 export { default as Carousel } from './Carousel/carousel';
 export { default as FeatureShowcase } from './FeatureShowcase/FeatureShowcase';
 export { default as AboutUs } from './AboutUs/AboutUs';
-
+export { default as StepFlow } from './StepFlow/StepFlow';
 
