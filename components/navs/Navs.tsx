@@ -38,7 +38,7 @@ export default function Navbar() {
         hasWhiteBg ? 'bg-white shadow-md' : 'bg-transparent'
       }`}
     >
-      <div className="w-screen-xl flex justify-between mx-auto px-5 md:px-10 py-2 md:py-5">
+      <div className="max-w-screen-2xl flex justify-between mx-auto px-5 md:px-10 py-2 md:py-5">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <Image
             src={`/logos/${hasWhiteBg ? 'logo-black.svg' : 'logo-white.svg'}`}

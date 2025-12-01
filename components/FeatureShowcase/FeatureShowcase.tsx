@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useMemo } from 'react';
@@ -24,6 +25,20 @@ interface BenefitCategory {
   subParts: SubPart[];
 }
 
+// ---- Highlight Box Styles ----
+const highlightStyles = `
+  .highlight-box {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    border: 3px solid #6DC43A;
+    border-radius: 12px;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 12px rgba(0,0,0,0.25);
+  }
+`;
+
 export default function FeatureOverlayPanelFixed() {
   const navKeys = Object.keys(benefitsData) as BenefitKey[];
 
@@ -41,28 +56,38 @@ export default function FeatureOverlayPanelFixed() {
 
   const activeSubPart = current.subParts[activeSubPartIndex];
 
-  // Open subPart in mobile overlay
   const openSubPart = (idx: number) => {
     setActiveSubPartIndex(idx);
-    setActiveFeatureIndex(null); // Reset zoom when changing subPart
+    setActiveFeatureIndex(null);
     setIsOverlayOpen(true);
   };
 
-  // Toggle feature zoom
   const onSubtitleClick = (featureIndex: number) => {
     setActiveFeatureIndex((prev) =>
       prev === featureIndex ? null : featureIndex
     );
   };
 
-  // Close overlay
   const closeOverlay = () => {
     setIsOverlayOpen(false);
     setActiveFeatureIndex(null);
   };
 
+  // Safely get active feature
+  const activeFeature =
+    activeFeatureIndex !== null && activeSubPart?.features?.[activeFeatureIndex]
+      ? activeSubPart.features[activeFeatureIndex]
+      : null;
+
+  // Safe zoom coordinates
+  const spotX = activeFeature?.zoomPos?.x ?? '50%';
+  const spotY = activeFeature?.zoomPos?.y ?? '50%';
+
   return (
     <section className="w-full bg-slate-50 px-4 sm:px-6 lg:px-20 py-10 lg:py-14 flex flex-col gap-6">
+      {/* Inject highlight box CSS */}
+      <style>{highlightStyles}</style>
+
       <h2 className="text-3xl sm:text-5xl lg:text-7xl font-semibold mb-6 sm:mb-10 text-center lg:text-left uppercase leading-tight">
         <span className="text-[#6DC43A]">busy.me</span>{' '}
         <span className="text-[#464646]">Key Features</span>
@@ -141,30 +166,36 @@ export default function FeatureOverlayPanelFixed() {
         {/* Desktop Image */}
         <div className="relative w-2/3 h-[500px] bg-white overflow-hidden rounded-2xl shadow-sm flex-grow">
           {activeSubPart && (
-            <motion.div
-              className="absolute inset-0 overflow-hidden"
-              animate={{
-                scale:
-                  activeFeatureIndex !== null &&
-                  activeSubPart.features[activeFeatureIndex]
-                    ? 2
-                    : 1,
-                transformOrigin:
-                  activeFeatureIndex !== null &&
-                  activeSubPart.features[activeFeatureIndex]
-                    ? `${activeSubPart.features[activeFeatureIndex].zoomPos.x} ${activeSubPart.features[activeFeatureIndex].zoomPos.y}`
-                    : 'center center',
-              }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <Image
-                src={activeSubPart.picName}
-                alt={`${selectedNav} - ${activeSubPart.title}`}
-                fill
-                className="object-contain object-center"
-                priority
-              />
-            </motion.div>
+            <>
+              <motion.div
+                className="absolute inset-0 overflow-hidden"
+                animate={{
+                  scale:
+                    activeFeatureIndex !== null &&
+                    activeSubPart.features[activeFeatureIndex]
+                      ? 2
+                      : 1,
+                  transformOrigin: `${spotX} ${spotY}`,
+                }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <Image
+                  src={activeSubPart.picName}
+                  alt={`${selectedNav} - ${activeSubPart.title}`}
+                  fill
+                  className="object-contain object-center"
+                  priority
+                />
+              </motion.div>
+
+              {/* Highlight Box */}
+              {activeFeature && (
+                <div
+                  className="highlight-box"
+                  style={{ left: spotX, top: spotY }}
+                />
+              )}
+            </>
           )}
         </div>
       </div>
@@ -186,13 +217,12 @@ export default function FeatureOverlayPanelFixed() {
       {isOverlayOpen && activeSubPart && (
         <div
           className="fixed inset-0 z-50 flex justify-center items-end bg-black/50"
-          onClick={closeOverlay} // Close when clicking outside
+          onClick={closeOverlay}
         >
           <div
             className="bg-white rounded-t-2xl max-h-[90%] overflow-auto p-4 w-full"
-            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+            onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
             <div className="flex justify-end mb-4">
               <button
                 onClick={closeOverlay}
@@ -203,10 +233,11 @@ export default function FeatureOverlayPanelFixed() {
             </div>
 
             <div className="mb-4">
-              <h3 className="text-lg font-bold">{activeSubPart.title}</h3>
+              <h3 className="text-lg font-bold text-black">
+                {activeSubPart.title}
+              </h3>
             </div>
 
-            {/* Image */}
             <div className="relative w-full h-64 sm:h-96 mb-4 overflow-hidden rounded-lg">
               <motion.div
                 className="absolute inset-0"
@@ -216,11 +247,7 @@ export default function FeatureOverlayPanelFixed() {
                     activeSubPart.features[activeFeatureIndex]
                       ? 2
                       : 1,
-                  transformOrigin:
-                    activeFeatureIndex !== null &&
-                    activeSubPart.features[activeFeatureIndex]
-                      ? `${activeSubPart.features[activeFeatureIndex].zoomPos.x} ${activeSubPart.features[activeFeatureIndex].zoomPos.y}`
-                      : 'center center',
+                  transformOrigin: `${spotX} ${spotY}`,
                 }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               >
@@ -232,9 +259,19 @@ export default function FeatureOverlayPanelFixed() {
                   priority
                 />
               </motion.div>
+
+              {/* Highlight Box Mobile */}
+              {activeFeatureIndex !== null && (
+                <div
+                  className="highlight-box"
+                  style={{
+                    left: spotX,
+                    top: spotY,
+                  }}
+                />
+              )}
             </div>
 
-            {/* Features */}
             <div className="space-y-2">
               {activeSubPart.features.map((feature, fIdx) => (
                 <button
