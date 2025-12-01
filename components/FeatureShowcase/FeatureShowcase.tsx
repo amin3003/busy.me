@@ -25,7 +25,7 @@ interface BenefitCategory {
   subParts: SubPart[];
 }
 
-// ---- Highlight Box Styles ----
+//  Highlight Box Styles 
 const highlightStyles = `
   .highlight-box {
     position: absolute;
@@ -73,13 +73,13 @@ export default function FeatureOverlayPanelFixed() {
     setActiveFeatureIndex(null);
   };
 
-  // Safely get active feature
+  //  get active feature
   const activeFeature =
     activeFeatureIndex !== null && activeSubPart?.features?.[activeFeatureIndex]
       ? activeSubPart.features[activeFeatureIndex]
       : null;
 
-  // Safe zoom coordinates
+  //  zoom coordinates
   const spotX = activeFeature?.zoomPos?.x ?? '50%';
   const spotY = activeFeature?.zoomPos?.y ?? '50%';
 

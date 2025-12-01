@@ -28,9 +28,7 @@ export default function Carousel() {
 
   return (
     <>
-      {/* --------------------------------------------------------- */}
-      {/* MOBILE VIEW ONLY — Show all cards with arrows */}
-      {/* --------------------------------------------------------- */}
+      {/* mobile view  */}
       <div className="block md:hidden px-6 py-10">
         <StepFlow>
           {slides.flatMap((slide) =>
@@ -41,9 +39,7 @@ export default function Carousel() {
         </StepFlow>
       </div>
 
-      {/* --------------------------------------------------------- */}
-      {/* DESKTOP VIEW ONLY — Keep original slider 100% unchanged */}
-      {/* --------------------------------------------------------- */}
+      {/* desktop view */}
       <div className="hidden md:block">
         <div className="relative w-full h-[70vh] md:h-[85vh] lg:h-screen overflow-hidden bg-gray-50 flex items-center justify-center px-10">
           {/* Slides */}
@@ -54,7 +50,7 @@ export default function Carousel() {
                 index === current ? 'opacity-100 z-20' : 'opacity-0 z-10'
               }`}
             >
-              {/* Left: title + cards */}
+              {/*  title + cards */}
               <div className="flex-1 flex flex-col justify-center w-full md:w-1/2 max-h-[85%]">
                 <div className="min-h-20 md:min-h-[100px]">
                   {index < 4 && (
@@ -70,7 +66,7 @@ export default function Carousel() {
                   />
                 </div>
 
-                {/* Desktop: current + previous slides */}
+                {/*  current + previous slides */}
                 <div className="hidden md:grid grid-cols-2 grid-rows-2 gap-4 mt-6">
                   {visibleSlides.flatMap((s, slideIndex) =>
                     s.cards.map((item) => {
@@ -91,7 +87,7 @@ export default function Carousel() {
                 </div>
               </div>
 
-              {/* Right: Image */}
+              {/*  Image */}
               <div className="flex-1 w-full md:w-1/2 flex justify-center items-center">
                 <Image
                   src={slide.image.src}
