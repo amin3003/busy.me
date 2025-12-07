@@ -10,36 +10,36 @@
                     {
                         "label": "Each email title",
                         "zoomPos": {
-                            "x": "20%",
-                            "y": "30%"
+                            "x": "43%",
+                            "y": "22%"
                         }
                     },
                     {
                         "label": "Each contact associated with email",
                         "zoomPos": {
-                            "x": "50%",
-                            "y": "40%"
+                            "x": "33%",
+                            "y": "23%"
                         }
                     },
                     {
                         "label": "All attached documents",
                         "zoomPos": {
-                            "x": "70%",
-                            "y": "50%"
+                            "x": "44%",
+                            "y": "68%"
                         }
                     },
                     {
                         "label": "Tasks, events, notes associated",
                         "zoomPos": {
-                            "x": "40%",
-                            "y": "60%"
+                            "x": "50%",
+                            "y": "50%"
                         }
                     },
                     {
                         "label": "Unread emails indicator",
                         "zoomPos": {
-                            "x": "80%",
-                            "y": "30%"
+                            "x": "15%",
+                            "y": "15%"
                         }
                     }
                 ]
@@ -51,8 +51,8 @@
                     {
                         "label": "Include tasks, events, notes in thread",
                         "zoomPos": {
-                            "x": "30%",
-                            "y": "25%"
+                            "x": "29%",
+                            "y": "50%"
                         }
                     },
                     {
@@ -65,8 +65,8 @@
                     {
                         "label": "Change thread title",
                         "zoomPos": {
-                            "x": "50%",
-                            "y": "55%"
+                            "x": "43%",
+                            "y": "25%"
                         }
                     }
                 ]
@@ -79,21 +79,21 @@
                         "label": "Reply to email within thread",
                         "zoomPos": {
                             "x": "35%",
-                            "y": "45%"
+                            "y": "70%"
                         }
                     },
                     {
                         "label": "Add entity to existing thread",
                         "zoomPos": {
-                            "x": "65%",
-                            "y": "50%"
+                            "x": "28%",
+                            "y": "85%"
                         }
                     },
                     {
                         "label": "Copy content from previous message",
                         "zoomPos": {
-                            "x": "80%",
-                            "y": "35%"
+                            "x": "85%",
+                            "y": "75%"
                         }
                     }
                 ]
@@ -105,22 +105,22 @@
                     {
                         "label": "Universal Input for all objects",
                         "zoomPos": {
-                            "x": "25%",
-                            "y": "40%"
+                            "x": "35%",
+                            "y": "15%"
                         }
                     },
                     {
                         "label": "Add entity to existing thread",
                         "zoomPos": {
-                            "x": "50%",
-                            "y": "50%"
+                            "x": "32%",
+                            "y": "40%"
                         }
                     },
                     {
                         "label": "Attach contact card with Intro",
                         "zoomPos": {
-                            "x": "75%",
-                            "y": "35%"
+                            "x": "33%",
+                            "y": "24%"
                         }
                     }
                 ]
@@ -138,43 +138,43 @@
                     {
                         "label": "Tasks listed simply",
                         "zoomPos": {
-                            "x": "25%",
-                            "y": "35%"
+                            "x": "33%",
+                            "y": "25%"
                         }
                     },
                     {
                         "label": "Organized by due dates",
                         "zoomPos": {
-                            "x": "50%",
+                            "x": "87%",
                             "y": "40%"
                         }
                     },
                     {
                         "label": "Identify email-linked tasks",
                         "zoomPos": {
-                            "x": "70%",
-                            "y": "45%"
+                            "x": "35%",
+                            "y": "55%"
                         }
                     },
                     {
                         "label": "Identify important tasks",
                         "zoomPos": {
-                            "x": "80%",
-                            "y": "50%"
+                            "x": "81%",
+                            "y": "55%"
                         }
                     },
                     {
                         "label": "Identify 'waiting on' tasks",
                         "zoomPos": {
-                            "x": "60%",
-                            "y": "30%"
+                            "x": "80%",
+                            "y": "20%"
                         }
                     },
                     {
                         "label": "Browse by categories and filters",
                         "zoomPos": {
-                            "x": "40%",
-                            "y": "60%"
+                            "x": "9%",
+                            "y": "15%"
                         }
                     }
                 ]
@@ -187,7 +187,7 @@
                         "label": "Start new thread from any object",
                         "zoomPos": {
                             "x": "50%",
-                            "y": "40%"
+                            "y": "60%"
                         }
                     }
                 ]
@@ -205,22 +205,22 @@
                     {
                         "label": "Events listed chronologically",
                         "zoomPos": {
-                            "x": "30%",
-                            "y": "45%"
+                            "x": "87%",
+                            "y": "30%"
                         }
                     },
                     {
                         "label": "Mark important events",
                         "zoomPos": {
-                            "x": "50%",
-                            "y": "55%"
+                            "x": "77%",
+                            "y": "52%"
                         }
                     },
                     {
                         "label": "Assign/filter by calendars",
                         "zoomPos": {
-                            "x": "70%",
-                            "y": "50%"
+                            "x": "8%",
+                            "y": "42%"
                         }
                     }
                 ]
@@ -238,15 +238,15 @@
                     {
                         "label": "Link notes with emails",
                         "zoomPos": {
-                            "x": "30%",
-                            "y": "40%"
+                            "x": "34%",
+                            "y": "42%"
                         }
                     },
                     {
                         "label": "Mark notes as important",
                         "zoomPos": {
-                            "x": "50%",
-                            "y": "45%"
+                            "x": "87%",
+                            "y": "20%"
                         }
                     }
                 ]
