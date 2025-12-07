@@ -17,7 +17,7 @@ const StepFlow: React.FC<StepFlowProps> = ({ children }) => {
           <React.Fragment key={index}>
             <div className="relative w-full flex flex-col items-center">
               {/* Step Number Badge */}
-              <div className="absolute -top-4 z-100 h-10 w-10 rounded-full bg-white flex items-center justify-center text-black text-xl font-bold">
+              <div className="absolute -top-4 z-2 h-10 w-10 rounded-full bg-white flex items-center justify-center text-black text-xl font-bold">
                 {stepNumber}
               </div>
 

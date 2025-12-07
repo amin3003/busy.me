@@ -10,36 +10,66 @@
                     {
                         "label": "Each email title",
                         "zoomPos": {
-                            "x": "43%",
-                            "y": "22%"
+                            "desktop": {
+                                "x": "43%",
+                                "y": "22%"
+                            },
+                            "mobile": {
+                                "x": "44%",
+                                "y": "30%"
+                            }
                         }
                     },
                     {
                         "label": "Each contact associated with email",
                         "zoomPos": {
-                            "x": "33%",
-                            "y": "23%"
+                            "desktop": {
+                                "x": "33%",
+                                "y": "23%"
+                            },
+                            "mobile": {
+                                "x": "32%",
+                                "y": "32%"
+                            }
                         }
                     },
                     {
                         "label": "All attached documents",
                         "zoomPos": {
-                            "x": "44%",
-                            "y": "68%"
+                            "desktop": {
+                                "x": "44%",
+                                "y": "68%"
+                            },
+                            "mobile": {
+                                "x": "44%",
+                                "y": "60%"
+                            }
                         }
                     },
                     {
                         "label": "Tasks, events, notes associated",
                         "zoomPos": {
-                            "x": "50%",
-                            "y": "50%"
+                            "desktop": {
+                                "x": "50%",
+                                "y": "50%"
+                            },
+                            "mobile": {
+                                "x": "55%",
+                                "y": "50%"
+                            }
                         }
                     },
                     {
                         "label": "Unread emails indicator",
                         "zoomPos": {
-                            "x": "15%",
-                            "y": "15%"
+                            "desktop": {
+                                "x": "15%",
+                                "y": "15%"
+                            },
+                            "mobile": {
+                                "x": "13%",
+                                "y": "28%"
+                            }
                         }
                     }
                 ]
@@ -51,22 +81,40 @@
                     {
                         "label": "Include tasks, events, notes in thread",
                         "zoomPos": {
-                            "x": "29%",
-                            "y": "50%"
+                            "desktop": {
+                                "x": "29%",
+                                "y": "50%"
+                            },
+                            "mobile": {
+                                "x": "30%",
+                                "y": "50%"
+                            }
                         }
                     },
                     {
                         "label": "Clear visual appearance",
                         "zoomPos": {
-                            "x": "60%",
-                            "y": "40%"
+                            "desktop": {
+                                "x": "60%",
+                                "y": "40%"
+                            },
+                            "mobile": {
+                                "x": "60%",
+                                "y": "40%"
+                            }
                         }
                     },
                     {
                         "label": "Change thread title",
                         "zoomPos": {
-                            "x": "43%",
-                            "y": "25%"
+                            "desktop": {
+                                "x": "43%",
+                                "y": "25%"
+                            },
+                            "mobile": {
+                                "x": "42%",
+                                "y": "33%"
+                            }
                         }
                     }
                 ]
@@ -78,22 +126,40 @@
                     {
                         "label": "Reply to email within thread",
                         "zoomPos": {
-                            "x": "35%",
-                            "y": "70%"
+                            "desktop": {
+                                "x": "35%",
+                                "y": "70%"
+                            },
+                            "mobile": {
+                                "x": "33%",
+                                "y": "60%"
+                            }
                         }
                     },
                     {
                         "label": "Add entity to existing thread",
                         "zoomPos": {
-                            "x": "28%",
-                            "y": "85%"
+                            "desktop": {
+                                "x": "28%",
+                                "y": "85%"
+                            },
+                            "mobile": {
+                                "x": "28%",
+                                "y": "73%"
+                            }
                         }
                     },
                     {
                         "label": "Copy content from previous message",
                         "zoomPos": {
-                            "x": "85%",
-                            "y": "75%"
+                            "desktop": {
+                                "x": "85%",
+                                "y": "75%"
+                            },
+                            "mobile": {
+                                "x": "83%",
+                                "y": "65%"
+                            }
                         }
                     }
                 ]
@@ -105,22 +171,40 @@
                     {
                         "label": "Universal Input for all objects",
                         "zoomPos": {
-                            "x": "35%",
-                            "y": "15%"
+                            "desktop": {
+                                "x": "35%",
+                                "y": "15%"
+                            },
+                            "mobile": {
+                                "x": "33%",
+                                "y": "28%"
+                            }
                         }
                     },
                     {
                         "label": "Add entity to existing thread",
                         "zoomPos": {
-                            "x": "32%",
-                            "y": "40%"
+                            "desktop": {
+                                "x": "32%",
+                                "y": "40%"
+                            },
+                            "mobile": {
+                                "x": "32%",
+                                "y": "43%"
+                            }
                         }
                     },
                     {
                         "label": "Attach contact card with Intro",
                         "zoomPos": {
-                            "x": "33%",
-                            "y": "24%"
+                            "desktop": {
+                                "x": "33%",
+                                "y": "24%"
+                            },
+                            "mobile": {
+                                "x": "33%",
+                                "y": "34%"
+                            }
                         }
                     }
                 ]
@@ -138,43 +222,79 @@
                     {
                         "label": "Tasks listed simply",
                         "zoomPos": {
-                            "x": "33%",
-                            "y": "25%"
+                            "desktop": {
+                                "x": "33%",
+                                "y": "25%"
+                            },
+                            "mobile": {
+                                "x": "34%",
+                                "y": "35%"
+                            }
                         }
                     },
                     {
                         "label": "Organized by due dates",
                         "zoomPos": {
-                            "x": "87%",
-                            "y": "40%"
+                            "desktop": {
+                                "x": "87%",
+                                "y": "40%"
+                            },
+                            "mobile": {
+                                "x": "87%",
+                                "y": "35%"
+                            }
                         }
                     },
                     {
                         "label": "Identify email-linked tasks",
                         "zoomPos": {
-                            "x": "35%",
-                            "y": "55%"
+                            "desktop": {
+                                "x": "35%",
+                                "y": "55%"
+                            },
+                            "mobile": {
+                                "x": "35%",
+                                "y": "53%"
+                            }
                         }
                     },
                     {
                         "label": "Identify important tasks",
                         "zoomPos": {
-                            "x": "81%",
-                            "y": "55%"
+                            "desktop": {
+                                "x": "81%",
+                                "y": "55%"
+                            },
+                            "mobile": {
+                                "x": "81%",
+                                "y": "55%"
+                            }
                         }
                     },
                     {
                         "label": "Identify 'waiting on' tasks",
                         "zoomPos": {
-                            "x": "80%",
-                            "y": "20%"
+                            "desktop": {
+                                "x": "80%",
+                                "y": "20%"
+                            },
+                            "mobile": {
+                                "x": "82%",
+                                "y": "30%"
+                            }
                         }
                     },
                     {
                         "label": "Browse by categories and filters",
                         "zoomPos": {
-                            "x": "9%",
-                            "y": "15%"
+                            "desktop": {
+                                "x": "9%",
+                                "y": "15%"
+                            },
+                            "mobile": {
+                                "x": "10%",
+                                "y": "30%"
+                            }
                         }
                     }
                 ]
@@ -186,8 +306,14 @@
                     {
                         "label": "Start new thread from any object",
                         "zoomPos": {
-                            "x": "50%",
-                            "y": "60%"
+                            "desktop": {
+                                "x": "50%",
+                                "y": "60%"
+                            },
+                            "mobile": {
+                                "x": "50%",
+                                "y": "60%"
+                            }
                         }
                     }
                 ]
@@ -205,22 +331,40 @@
                     {
                         "label": "Events listed chronologically",
                         "zoomPos": {
-                            "x": "87%",
-                            "y": "30%"
+                            "desktop": {
+                                "x": "87%",
+                                "y": "30%"
+                            },
+                            "mobile": {
+                                "x": "87%",
+                                "y": "37%"
+                            }
                         }
                     },
                     {
                         "label": "Mark important events",
                         "zoomPos": {
-                            "x": "77%",
-                            "y": "52%"
+                            "desktop": {
+                                "x": "77%",
+                                "y": "52%"
+                            },
+                            "mobile": {
+                                "x": "77%",
+                                "y": "52%"
+                            }
                         }
                     },
                     {
                         "label": "Assign/filter by calendars",
                         "zoomPos": {
-                            "x": "8%",
-                            "y": "42%"
+                            "desktop": {
+                                "x": "8%",
+                                "y": "42%"
+                            },
+                            "mobile": {
+                                "x": "8%",
+                                "y": "42%"
+                            }
                         }
                     }
                 ]
@@ -238,15 +382,27 @@
                     {
                         "label": "Link notes with emails",
                         "zoomPos": {
-                            "x": "34%",
-                            "y": "42%"
+                            "desktop": {
+                                "x": "34%",
+                                "y": "42%"
+                            },
+                            "mobile": {
+                                "x": "34%",
+                                "y": "42%"
+                            }
                         }
                     },
                     {
                         "label": "Mark notes as important",
                         "zoomPos": {
-                            "x": "87%",
-                            "y": "20%"
+                            "desktop": {
+                                "x": "87%",
+                                "y": "20%"
+                            },
+                            "mobile": {
+                                "x": "87%",
+                                "y": "33%"
+                            }
                         }
                     }
                 ]

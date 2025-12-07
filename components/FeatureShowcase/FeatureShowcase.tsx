@@ -1,16 +1,23 @@
-
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import benefitsData from '@/data/benefits.json';
 
 type BenefitKey = keyof typeof benefitsData;
 
+interface ZoomPosition {
+  x: string;
+  y: string;
+}
+
 interface FeatureItem {
   label: string;
-  zoomPos: { x: string; y: string };
+  zoomPos: {
+    desktop: ZoomPosition;
+    mobile?: ZoomPosition;
+  };
 }
 
 interface SubPart {
@@ -25,7 +32,7 @@ interface BenefitCategory {
   subParts: SubPart[];
 }
 
-//  Highlight Box Styles 
+// Highlight Box Styles
 const highlightStyles = `
   .highlight-box {
     position: absolute;
@@ -36,6 +43,14 @@ const highlightStyles = `
     pointer-events: none;
     transform: translate(-50%, -50%);
     box-shadow: 0 0 12px rgba(0,0,0,0.25);
+  }
+
+  @media (max-width: 768px) {
+    .highlight-box {
+      width: 80px;
+      height: 80px;
+      border-width: 2px;
+    }
   }
 `;
 
@@ -48,6 +63,22 @@ export default function FeatureOverlayPanelFixed() {
     null
   );
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+
+  // ------------------------
+  // Scroll Lock Fix
+  // ------------------------
+  useEffect(() => {
+    if (isOverlayOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, [isOverlayOpen]);
+  // ------------------------
 
   const current: BenefitCategory = useMemo(
     () => benefitsData[selectedNav],
@@ -73,19 +104,27 @@ export default function FeatureOverlayPanelFixed() {
     setActiveFeatureIndex(null);
   };
 
-  //  get active feature
   const activeFeature =
     activeFeatureIndex !== null && activeSubPart?.features?.[activeFeatureIndex]
       ? activeSubPart.features[activeFeatureIndex]
       : null;
 
-  //  zoom coordinates
-  const spotX = activeFeature?.zoomPos?.x ?? '50%';
-  const spotY = activeFeature?.zoomPos?.y ?? '50%';
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
+  const spotX = activeFeature
+    ? isMobile
+      ? activeFeature.zoomPos.mobile?.x ?? activeFeature.zoomPos.desktop.x
+      : activeFeature.zoomPos.desktop.x
+    : '50%';
+
+  const spotY = activeFeature
+    ? isMobile
+      ? activeFeature.zoomPos.mobile?.y ?? activeFeature.zoomPos.desktop.y
+      : activeFeature.zoomPos.desktop.y
+    : '50%';
 
   return (
     <section className="w-full bg-slate-50 px-4 sm:px-6 lg:px-20 py-10 lg:py-14 flex flex-col gap-6">
-      {/* Inject highlight box CSS */}
       <style>{highlightStyles}</style>
 
       <h2 className="text-3xl sm:text-5xl lg:text-7xl font-semibold mb-6 sm:mb-10 text-center lg:text-left uppercase leading-tight">
@@ -188,7 +227,6 @@ export default function FeatureOverlayPanelFixed() {
                 />
               </motion.div>
 
-              {/* Highlight Box */}
               {activeFeature && (
                 <div
                   className="highlight-box"
@@ -200,7 +238,7 @@ export default function FeatureOverlayPanelFixed() {
         </div>
       </div>
 
-      {/* Mobile */}
+      {/* Mobile List */}
       <div className="lg:hidden flex flex-col gap-3">
         {current.subParts.map((subPart, idx) => (
           <button
@@ -232,11 +270,9 @@ export default function FeatureOverlayPanelFixed() {
               </button>
             </div>
 
-            <div className="mb-4">
-              <h3 className="text-lg font-bold text-black">
-                {activeSubPart.title}
-              </h3>
-            </div>
+            <h3 className="text-lg font-bold text-black mb-4">
+              {activeSubPart.title}
+            </h3>
 
             <div className="relative w-full h-64 sm:h-96 mb-4 overflow-hidden rounded-lg">
               <motion.div
@@ -245,7 +281,7 @@ export default function FeatureOverlayPanelFixed() {
                   scale:
                     activeFeatureIndex !== null &&
                     activeSubPart.features[activeFeatureIndex]
-                      ? 2
+                      ? 3.2
                       : 1,
                   transformOrigin: `${spotX} ${spotY}`,
                 }}
@@ -260,19 +296,16 @@ export default function FeatureOverlayPanelFixed() {
                 />
               </motion.div>
 
-              {/* Highlight Box Mobile */}
               {activeFeatureIndex !== null && (
                 <div
                   className="highlight-box"
-                  style={{
-                    left: spotX,
-                    top: spotY,
-                  }}
+                  style={{ left: spotX, top: spotY }}
                 />
               )}
             </div>
 
-            <div className="space-y-2">
+            {/* Feature List */}
+            <div className="space-y-2 pb-4">
               {activeSubPart.features.map((feature, fIdx) => (
                 <button
                   key={fIdx}
